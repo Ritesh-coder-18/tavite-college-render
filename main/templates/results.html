@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-center mb-5">📊 Results</h2>
+
+{% for cls, info in data.items %}
+
+<h3 class="mt-4 text-primary">🎓 {{ cls }}</h3>
+
+<!-- 🏆 TOPPERS -->
+<div class="row">
+
+    {% for item in info.toppers %}
+    <div class="col-md-4 mb-4">
+        {% if item.rank == 1 %}
+        <div class="card text-center shadow-lg p-3 border-0 bg-warning">
+        {% elif item.rank == 2 %}
+        <div class="card text-center shadow-lg p-3 border-0 bg-light">
+        {% elif item.rank == 3 %}
+        <div class="card text-center shadow-lg p-3 border-0" style="background-color:#cd7f32;">
+        {% else %}
+        <div class="card text-center shadow p-3 border-0">
+        {% endif %}
+
+            <!-- Rank Badge -->
+            <h4>
+                {% if item.rank == 1 %} 🥇 1st
+                {% elif item.rank == 2 %} 🥈 2nd
+                {% elif item.rank == 3 %} 🥉 3rd
+                {% else %} Rank {{ item.rank }}
+                {% endif %}
+            </h4>
+
+            <!-- Student Image -->
+            <img src="{{ item.student.image.url }}" 
+                 class="rounded-circle mx-auto"
+                 style="width:120px; height:120px; object-fit:cover;">
+
+            <!-- Name -->
+            <h5 class="mt-3">{{ item.student.student_name }}</h5>
+
+            <!-- Percentage -->
+            <p class="text-success fw-bold">{{ item.student.percentage }}%</p>
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+<!-- 📄 FULL RESULT IMAGE -->
+{% if info.result_image %}
+<div class="text-center mt-4">
+    <h5>📄 Full Result</h5>
+    <img src="{{ info.result_image.result_image.url }}" 
+         class="img-fluid rounded shadow"
+         style="max-width:80%;">
+</div>
+{% endif %}
+
+<hr>
+
+{% endfor %}
+
+{% endblock %}
+

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About - Tavite College{% endblock %}
+{% block content %}
+
+<!-- Mission, Vision, History -->
+<div class="mb-5">
+    <h2 class="text-center">
+        Tavite Software Computers & Software Institute
+    </h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>🎯 Our Mission</h4>
+            <p>To provide quality education that empowers students with knowledge, skills, and character to excel in life.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>👁️ Our Vision</h4>
+            <p>To be a leading institution in academic excellence, innovation, and student success.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>📖 Our History</h4>
+            <p>Founded in 2010, Tavite College has grown into a respected institution offering a range of programs and facilities for holistic learning.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="alert alert-success text-center shadow-sm">
+    <h5>🎓 Recognition & Affiliation</h5>
+    <p>
+        This institute is affiliated to Makhanlal Chaturvedi University, Bhopal 
+        and is approved by AICTE for providing quality computer education.
+    </p>
+</div>
+
+<!-- Campus Gallery -->
+<div class="mb-5">
+    <h3 class="text-center">🏫 Our Campus</h3>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <img src="{% static 'images/computer_lab_.jpg' %}" class="img-fluid rounded shadow" alt="Computer Lab">
+            <p class="mt-2">Computer Lab</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/library.jpg' %}" class="img-fluid rounded shadow" alt="Library">
+            <p class="mt-2">Library</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'images/sports_r.jpg' %}" class="img-fluid rounded shadow" alt="Sports Room">
+            <p class="mt-2">Sports Room</p>
+        </div>
+    </div>
+</div>
+
+<!-- Faculty Section -->
+<div class="mb-5">
+    <h3 class="text-center">👩‍🏫 Our Faculty</h3>
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/teacher1.jpg' %}" class="rounded-circle img-fluid" style="max-width: 150px;" alt="Teacher 1">
+            <h5>Mr. Vipin Garg</h5>
+            <p>Head of Computer Science</p>
+        </div>
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/teacher1.jpg' %}" class="rounded-circle img-fluid" style="max-width: 150px;" alt="Teacher 2">
+            <h5>Prof. Silki Garg</h5>
+            <p>DSA and Development Faculty</p>
+        </div>
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/teacher1.jpg' %}" class="rounded-circle img-fluid" style="max-width: 150px;" alt="Teacher 3">
+            <h5>Mr. Vikash Tiwari</h5>
+            <p>PC Pakage Faculty</p>
+        </div>
+        <div class="col-md-3 text-center">
+            <img src="{% static 'images/teacher1.jpg' %}" class="rounded-circle img-fluid" style="max-width: 150px;" alt="Teacher 4">
+            <h5>Mr. Vivek Pandey</h5>
+            <p>Sports Teacher</p>
+        </div>
+    </div>
+</div>
+
+<!-- Link to Events Page -->
+<div class="text-center mb-4">
+    <a href="{% url 'events' %}" class="btn btn-outline-info btn-lg">🎉 View College Events & Functions</a>
+</div>
+
+{% endblock %}

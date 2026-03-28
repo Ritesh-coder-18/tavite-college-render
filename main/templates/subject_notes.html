@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4">📘 {{ subject.name }} Notes (Unit-wise PDFs)</h2>
+
+    {% if notes %}
+        {% for i in "12345"|make_list %}
+            {% with unit=notes|get_unit:i %}
+                {% if unit %}
+                    <div class="mb-3">
+                        <h5>📄 Unit {{ i }}</h5>
+                        <a href="{{ unit.url }}" class="btn btn-sm btn-success" target="_blank">Download Unit {{ i }}</a>
+                    </div>
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    {% else %}
+        <p class="text-muted">No notes uploaded yet for this subject.</p>
+    {% endif %}
+</div>
+{% endblock %}

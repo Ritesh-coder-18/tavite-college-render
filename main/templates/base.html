@@ -1,0 +1,196 @@
+{% now "Y" as now_year %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Tavite College{% endblock %}</title>
+
+    <!-- Bootstrap 5 CDN -->
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3 fixed-top shadow">
+        <a class="navbar-brand" href="{% url 'home' %}">Tavite College</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'notices' %}">Notices</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'results' %}">Results</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'teacher_messages' %}">Teacher Messages</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+
+            <button id="toggleMode" class="btn btn-outline-light">Toggle Mode</button>
+        </div>
+    </nav> -->
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+
+            <!-- Logo / Name -->
+            <a class="navbar-brand fw-bold" href="{% url 'home' %}">
+                🎓 Tavite Software Institute
+            </a>
+
+            <!-- Toggle Button (Mobile) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navMenu">
+
+                <!-- Left Side -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'events' %}">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'notices' %}">Notices</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'results' %}">Results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'teacher_messages' %}">Messages</a></li>
+                </ul>
+
+                <!-- Right Side -->
+                <ul class="navbar-nav align-items-center">
+
+                    <!-- Dark Mode Icon -->
+                    <li class="nav-item me-2">
+                        <button id="toggleMode" class="btn btn-outline-light rounded-circle">
+                            🌙
+                        </button>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div style="height: 70px;"></div>
+
+    <div class="container mt-4">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+        <footer class="footer py-4 mt-5 bg-light border-top text-dark" id="mainFooter">
+            <div class="container">
+                <div class="row align-items-start text-center text-md-start">
+
+                    <!-- College Info -->
+                    <div class="col-md-4 mb-4">
+                        <h5 class="fw-bold">🏫 Tavite Software Computers & Software Institute</h5>
+                        <p class="mb-1">📍 Katni, Madhya Pradesh</p>
+                        <p class="mb-1">🎓 Affiliated to Makhanlal Chaturvedi University</p>
+                        <p>✅ AICTE Approved Institute</p>
+                        <p class="mb-1">Kachhpura, Katni (M.P.)</p>
+                        <p class="mb-1">Email: <a href="mailto:tavitecollege@gmail.com"
+                                class="text-decoration-none">tavitecollege@gmail.com</a></p>
+                        <p>Phone: <a href="tel:+919876543210" class="text-decoration-none">+91 98765 43210</a></p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-md-4 mb-4">
+                        <h5 class="fw-bold">🔗 Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="{% url 'about' %}" class="text-decoration-none">About Us</a></li>
+                            <li><a href="{% url 'courses' %}" class="text-decoration-none">Courses</a></li>
+                            <li><a href="{% url 'notes_dashboard' %}" class="text-decoration-none">Notes</a></li>
+                            <li><a href="{% url 'events' %}" class="text-decoration-none">Events</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="col-md-4 mb-4">
+                        <h5 class="fw-bold">📱 Follow Us</h5>
+                        <a href="https://instagram.com/bca_tavitecollege" target="_blank"
+                            class="btn btn-outline-dark btn-sm mb-2">
+                            <i class="bi bi-instagram"></i> Instagram
+                        </a>
+                        <p class="text-muted small mb-0">More photos and videos on Instagram!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="text-center small text-muted">
+
+                    © {% now "Y" %} Tavite College. All rights reserved. <br>
+
+                    <span class="fw-semibold text-dark">
+                        💻 Developed & Designed by Ritesh Chourasiya (BCA 6th Semester)
+                    </span>
+
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById('toggleMode');
+
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '☀️';
+            } else {
+                toggleBtn.innerHTML = '🌙';
+            }
+
+            // Toggle theme
+            toggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    toggleBtn.innerHTML = '☀️';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    toggleBtn.innerHTML = '🌙';
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}College Events & Functions{% endblock %}
+{% block content %}
+
+<h2 class="text-center mb-5">🎉 College Events & Functions</h2>
+
+<!-- Fresher's Party Carousel -->
+<div class="mb-5">
+    <h4 class="mb-3">✨ Fresher's Party</h4>
+    <div class="container d-flex justify-content-center">
+        <div id="fresherCarousel" class="carousel slide" data-bs-ride="carousel"  style="max-width: 700px;">
+            <div class="carousel-inner rounded shadow-sm">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/events/fresher_party.jpg' %}" class="d-block w-100" alt="Fresher 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/events/fresher_party1.jpg' %}" class="d-block w-100" alt="Fresher 2">
+                </div>
+                <div class="carousel-item active">
+                    <img src="{% static 'images/events/fresher_party2.jpg' %}" class="d-block w-100" alt="Fresher 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/events/fresher_party3.jpg' %}" class="d-block w-100" alt="Fresher 4">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#fresherCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#fresherCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>    
+</div>
+
+
+
+<!-- Ganesh Chaturthi Carousel -->
+<div class="mb-5">
+    <h4 class="mb-3">🌺 Ganesh Chaturthi</h4>
+    <div class="container d-flex justify-content-center">
+    <div id="ganeshCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width: 700px;">
+        <div class="carousel-inner rounded shadow-sm">
+            <div class="carousel-item active">
+                <img src="{% static 'images/events/ganesh_cha.jpg' %}" class="d-block w-100" alt="Ganesh 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/events/ganesh2.jpg' %}" class="d-block w-100" alt="Ganesh 2">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#ganeshCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#ganeshCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    </div>
+</div>
+
+<!--Holi Celebration-->
+<div class="mb-5">
+    <h4 class="mb-3">🌺 Holi Celebration</h4>
+    <div class="container d-flex justify-content-center">
+    <div id="ganeshCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width: 700px;">
+        <div class="carousel-inner rounded shadow-sm">
+            <div class="carousel-item active">
+                <img src="{% static 'images/events/holi1.jpg' %}" class="d-block w-100" alt="Ganesh 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/events/ganesh2.jpg' %}" class="d-block w-100" alt="Ganesh 2">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#ganeshCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#ganeshCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    </div>
+</div>
+
+
+<!-- Farewell and Awards Carousel -->
+<div class="mb-5">
+    <h4 class="mb-3">🏆 Farewell & Awards</h4>
+    <div class="container d-flex justify-content-center">
+    <div id="farewellCarousel" class="carousel slide" data-bs-ride="carousel "style="max-width: 700px;">
+        <div class="carousel-inner rounded shadow-sm">
+            <div class="carousel-item active">
+                <img src="{% static 'images/events/farewell1.jpg' %}" class="d-block w-100" alt="Farewell 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/events/farewell2.jpg' %}" class="d-block w-100" alt="Farewell 2">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#farewellCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#farewellCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    </div>
+</div>
+
+<!-- College Tour Carousel -->
+<div class="mb-5">
+    <h4 class="mb-3">🚌 College Tour</h4>
+    <div class="container d-flex justify-content-center">
+    <div id="tourCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width: 700px;">
+        <div class="carousel-inner rounded shadow-sm">
+            <div class="carousel-item active">
+                <img src="{% static 'images/events/tour1.jpg' %}" class="d-block w-100" alt="Tour 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/events/tour2.jpg' %}" class="d-block w-100" alt="Tour 2">
+            </div>
+             <div class="carousel-item active">
+                <img src="{% static 'images/events/tour3.jpg' %}" class="d-block w-100" alt="Tour 3">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/events/tour4.jpg' %}" class="d-block w-100" alt="Tour 4">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#tourCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#tourCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>    
+    </div>
+</div>
+
+<!-- Instagram Button -->
+<div class="text-center mt-5">
+    <a href="https://www.instagram.com/bca_tavitecollege/" target="_blank" class="btn btn-outline-primary btn-lg">
+        📷 Visit Our Instagram for More Photos & Videos
+    </a>
+</div>
+
+{% endblock %}
