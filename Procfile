@@ -1,0 +1,1 @@
+web: gunicorn Tavite_College.wsgi

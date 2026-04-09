@@ -20,7 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ng-b0zyg%@*09d&_5ycc6e7+wu%%2rud_o#fpvh=^$uc1^3d(o'
+import os
+
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ng-b0zyg%@*09d&_5ycc6e7+wu%%2rud_o#fpvh=^$uc1^3d(o')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -75,11 +77,13 @@ WSGI_APPLICATION = 'Tavite_College.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3',
+        conn_max_age=600
+    )
 }
 
 
